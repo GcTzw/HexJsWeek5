@@ -1,0 +1,150 @@
+---
+title: 旅遊資訊
+layout: ./app/layout.ejs
+engine: ejs
+current: index
+---
+
+<section class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <div class="card mt-100px mb-100px py-60px px-95px">
+        <div class="row">
+          <div class="col-6">
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/js_week5/main_img.png?raw=true" alt="">
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/js_week5/logo.png?raw=true" alt="">
+          </div>
+          <div class="col-6">
+            <h2 class="text-primary border-bottom border-primary border-3 pb-1">
+              <span class="material-symbols-outlined me-1">
+                add_circle
+              </span>
+              新增旅遊套票
+            </h2>
+            <div class="mt-6">
+              <ul class="list-unstyled">
+                <li class="d-flex">
+                  <div class="col-3">
+                    <p class="mb-0 fw-500 text-primary mt-2">套票名稱</p>
+                  </div>
+                  <div class="col-9">
+                    <input class="index-input" type="text" placeholder="請填寫套票名稱">
+                  </div>                  
+                </li>
+                <li class="d-flex mt-3">
+                  <div class="col-3">
+                    <p class="mb-0 fw-500 text-primary mt-2">圖片網址</p>
+                  </div>
+                  <div class="col-9">
+                    <input class="index-input" type="text" placeholder="請填寫圖片網址">
+                  </div>                  
+                </li>
+                <li class="d-flex mt-3">
+                  <div class="col-3">
+                    <p class="mb-0 fw-500 text-primary mt-2">景點地區</p>
+                  </div>
+                  <div class="col-9">
+                    <select class="index-input">
+                      <option value="" disabled selected hidden>請選擇景點地區</option>
+                      <option value="台北">台北</option>
+                      <option value="台中">台中</option>
+                      <option value="高雄">高雄</option>
+                    </select>
+                  </div>                  
+                </li>
+                <li class="d-flex mt-3">
+                  <div class="col-3">
+                    <p class="mb-0 fw-500 text-primary mt-2">套票金額</p>
+                  </div>
+                  <div class="col-9">
+                    <input class="index-input" type="number" placeholder="請填寫套票金額">
+                  </div>                  
+                </li>
+                <li class="d-flex mt-3">
+                  <div class="col-3">
+                    <p class="mb-0 fw-500 text-primary mt-2">套票組數</p>
+                  </div>
+                  <div class="col-9">
+                    <input class="index-input" type="number" placeholder="請填寫套票組數">
+                  </div>                  
+                </li>
+                <li class="d-flex mt-3">
+                  <div class="col-3">
+                    <p class="mb-0 fw-500 text-primary mt-2">套票星級</p>
+                  </div>
+                  <div class="col-9">
+                    <input class="index-input" type="number" placeholder="請填寫套票星級">
+                  </div>                  
+                </li>
+                <li class="d-flex mt-3">
+                  <div class="col-3">
+                    <p class="mb-0 fw-500 text-primary mt-2">套票描述</p>
+                  </div>
+                  <div class="col-9">
+                    <textarea class="index-input" placeholder="請填寫套票描述（限 100 字）" id="" rows="5"></textarea>
+                  </div>                  
+                </li>
+              </ul>
+            </div>
+            <div class="d-flex justify-content-end mt-5">              
+              <button class="btn btn-primary py-10px px-40px fs-5">新增套票</button>              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="bg-gray">
+  <div class="container py-60px">
+    <!-- 搜尋區 -->
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <div class="d-flex">
+          <select name="" id="">
+            <option value="" disabled selected hidden>地區搜尋</option>
+            <option value="所有">所有</option>
+            <option value="台北">台北</option>
+            <option value="台中">台中</option>
+            <option value="高雄">高雄</option>
+          </select>
+          <p>本次搜尋共 6 筆資料</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 卡片區 -->
+    <ul class="trip-area" id="test">
+      <!-- <li class="trip-item">
+
+        <div class="trip-item-img-area">
+          <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/js_week5/travel_1.png?raw=true" alt="">
+          <div class="trip-item-location">台北</div>
+          <div class="trip-item-rate">8.6</div>
+        </div>
+
+        <div class="trip-item-info-area">
+          <div>
+            <h4>綠島自由行套裝行程</h4>
+            <p>嚴選超高CP值綠島自由行套裝行程，多種綠島套裝組合，提供台東綠島來回船票、綠島環島機車、綠島民宿住宿，行程加贈『綠島浮潛體驗』以及『綠島生態導覽』，讓你用輕鬆的綠島套裝自由行，也能深度認識綠島在地文化。</p>
+          </div>            
+          <div class="d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+              <span class="material-symbols-outlined me-1">error</span>
+              <span>
+                剩下最後 8 組
+              </span>
+            </div>
+            <div class="d-flex align-items-center">
+              <span class="fs-6 me-1">TWD</span>
+              <span class="fs-2">$1,280</span>
+            </div>
+          </div>
+        </div>
+      </li> -->
+    </ul>
+
+  </div>
+</section>  
