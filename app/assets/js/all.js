@@ -1,3 +1,41 @@
+const objFieldNameArr = [
+  {
+    id: "txtName",
+    name: "套票名稱",
+    objFieldName: "name"
+  },
+  {
+    id: "txtImgUrl",
+    name: "圖片網址",
+    objFieldName:"imgUrl"
+  },
+  {
+    id: "slcArea",
+    name: "景點地區",
+    objFieldName:"area"
+  },
+  {
+    id: "txtPrice",
+    name: "套票金額",
+    objFieldName:"price"
+  },
+  {
+    id: "txtGroup",
+    name: "套票組數",
+    objFieldName:"group"
+  },
+  {
+    id: "txtRate",
+    name: "套票星級",
+    objFieldName:"rate"
+  },
+  {
+    id: "txtDesc",
+    name: "套票描述",
+    objFieldName:"description"
+  }
+];
+
 let data = [
   {
     "id": 0,
@@ -41,6 +79,31 @@ function init()
   });
 }
 
+function AddOneSet()
+{
+  let newDataObj = {};
+  let PassFlag = true;
+
+  objFieldNameArr.forEach(function(item){
+    if(PassFlag)
+    {
+      let input = document.querySelector(`#${item.id}`);
+      if(!input.value)
+      {
+        alert(`${item.name}沒有填寫！`);
+        PassFlag = false;
+      }
+
+      newDataObj[item.objFieldName] = input.value;
+    } 
+  });
+
+  if(PassFlag){
+    newDataObj.id = data.length;
+    data.push(newDataObj);
+  } 
+}
+
 function getOneSet(obj)
 {
   let rtnStr = "";
@@ -75,7 +138,7 @@ function getInfoArea(obj)
   rtnStr += '</div>';
 
   rtnStr += getInfoAreaFooter(obj);
-  
+
   rtnStr += '</div>';
   return rtnStr;
 }
