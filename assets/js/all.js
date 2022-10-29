@@ -1,5 +1,34 @@
 "use strict";
 
+var objFieldNameArr = [{
+  id: "txtName",
+  name: "套票名稱",
+  objFieldName: "name"
+}, {
+  id: "txtImgUrl",
+  name: "圖片網址",
+  objFieldName: "imgUrl"
+}, {
+  id: "slcArea",
+  name: "景點地區",
+  objFieldName: "area"
+}, {
+  id: "txtPrice",
+  name: "套票金額",
+  objFieldName: "price"
+}, {
+  id: "txtGroup",
+  name: "套票組數",
+  objFieldName: "group"
+}, {
+  id: "txtRate",
+  name: "套票星級",
+  objFieldName: "rate"
+}, {
+  id: "txtDesc",
+  name: "套票描述",
+  objFieldName: "description"
+}];
 var data = [{
   "id": 0,
   "name": "肥宅心碎賞櫻3日",
@@ -35,6 +64,28 @@ function init() {
   data.forEach(function (item) {
     tripArea.innerHTML += getOneSet(item);
   });
+}
+
+function AddOneSet() {
+  var newDataObj = {};
+  var PassFlag = true;
+  objFieldNameArr.forEach(function (item) {
+    if (PassFlag) {
+      var input = document.querySelector("#".concat(item.id));
+
+      if (!input.value) {
+        alert("".concat(item.name, "\u6C92\u6709\u586B\u5BEB\uFF01"));
+        PassFlag = false;
+      }
+
+      newDataObj[item.objFieldName] = input.value;
+    }
+  });
+
+  if (PassFlag) {
+    newDataObj.id = data.length;
+    data.push(newDataObj);
+  }
 }
 
 function getOneSet(obj) {

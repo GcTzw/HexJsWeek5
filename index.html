@@ -37,7 +37,7 @@
                     <p class="mb-0 fw-500 text-primary mt-2">套票名稱</p>
                   </div>
                   <div class="col-9">
-                    <input class="index-input" type="text" placeholder="請填寫套票名稱">
+                    <input class="index-input" type="text" placeholder="請填寫套票名稱" id="txtName">
                   </div>                  
                 </li>
                 <li class="d-flex mt-3">
@@ -45,7 +45,7 @@
                     <p class="mb-0 fw-500 text-primary mt-2">圖片網址</p>
                   </div>
                   <div class="col-9">
-                    <input class="index-input" type="text" placeholder="請填寫圖片網址">
+                    <input class="index-input" type="text" placeholder="請填寫圖片網址" id="txtImgUrl">
                   </div>                  
                 </li>
                 <li class="d-flex mt-3">
@@ -53,7 +53,7 @@
                     <p class="mb-0 fw-500 text-primary mt-2">景點地區</p>
                   </div>
                   <div class="col-9">
-                    <select class="index-input">
+                    <select class="index-input" id="slcArea">
                       <option value="" disabled selected hidden>請選擇景點地區</option>
                       <option value="台北">台北</option>
                       <option value="台中">台中</option>
@@ -66,7 +66,7 @@
                     <p class="mb-0 fw-500 text-primary mt-2">套票金額</p>
                   </div>
                   <div class="col-9">
-                    <input class="index-input" type="number" placeholder="請填寫套票金額">
+                    <input class="index-input" type="number" placeholder="請填寫套票金額" id="txtPrice">
                   </div>                  
                 </li>
                 <li class="d-flex mt-3">
@@ -74,7 +74,7 @@
                     <p class="mb-0 fw-500 text-primary mt-2">套票組數</p>
                   </div>
                   <div class="col-9">
-                    <input class="index-input" type="number" placeholder="請填寫套票組數">
+                    <input class="index-input" type="number" placeholder="請填寫套票組數" id="txtGroup">
                   </div>                  
                 </li>
                 <li class="d-flex mt-3">
@@ -82,7 +82,7 @@
                     <p class="mb-0 fw-500 text-primary mt-2">套票星級</p>
                   </div>
                   <div class="col-9">
-                    <input class="index-input" type="number" placeholder="請填寫套票星級">
+                    <input class="index-input" type="number" placeholder="請填寫套票星級" id="txtRate">
                   </div>                  
                 </li>
                 <li class="d-flex mt-3">
@@ -90,13 +90,13 @@
                     <p class="mb-0 fw-500 text-primary mt-2">套票描述</p>
                   </div>
                   <div class="col-9">
-                    <textarea class="index-input" placeholder="請填寫套票描述（限 100 字）" id="" rows="5"></textarea>
+                    <textarea class="index-input" placeholder="請填寫套票描述（限 100 字）" id="txtDesc" rows="5"></textarea>
                   </div>                  
                 </li>
               </ul>
             </div>
             <div class="d-flex justify-content-end mt-5">              
-              <button class="btn btn-primary py-10px px-40px fs-5">新增套票</button>              
+              <button class="btn btn-primary py-10px px-40px fs-5" onclick="AddOneSet();">新增套票</button>              
             </div>
           </div>
         </div>
