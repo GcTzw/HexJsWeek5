@@ -99,6 +99,38 @@ function AddOneSet() {
         PassFlag = false;
       }
 
+      if (PassFlag) switch (item.id) {
+        case "txtPrice":
+        case "txtGroup":
+        case "txtRate":
+          if (isNaN(parseFloat(input.value))) {
+            Swal.fire({
+              title: '資料有誤！',
+              text: "".concat(item.name, "\u53EA\u80FD\u586B\u6578\u5B57"),
+              icon: 'error',
+              confirmButtonColor: colorPrimary
+            });
+            PassFlag = false;
+          }
+
+          break;
+
+        case "txtDesc":
+          if (input.value.length > 100) {
+            Swal.fire({
+              title: '資料有誤！',
+              text: "".concat(item.name, "\u586B\u5BEB\u9577\u5EA6\u8ACB\u52FF\u8D85\u904E100"),
+              icon: 'error',
+              confirmButtonColor: colorPrimary
+            });
+            PassFlag = false;
+          }
+
+          break;
+
+        default:
+          break;
+      }
       newDataObj[item.objFieldName] = input.value;
     }
   });
