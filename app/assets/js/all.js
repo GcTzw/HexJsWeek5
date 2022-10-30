@@ -120,6 +120,39 @@ function AddOneSet()
         PassFlag = false;
       }
 
+      if(PassFlag)
+        switch(item.id)
+        {
+          case "txtPrice":
+          case "txtGroup":
+          case "txtRate":
+            if(isNaN(parseFloat(input.value)))
+            {
+              Swal.fire({
+                title: '資料有誤！',
+                text:  `${item.name}只能填數字`,
+                icon: 'error',
+                confirmButtonColor: colorPrimary
+              })      
+              PassFlag = false;
+            }
+            break;
+          case "txtDesc":
+            if(input.value.length>100)
+            {
+              Swal.fire({
+                title: '資料有誤！',
+                text:  `${item.name}填寫長度請勿超過100`,
+                icon: 'error',
+                confirmButtonColor: colorPrimary
+              })      
+              PassFlag = false;
+            }
+            break;
+          default:
+            break;
+        }
+
       newDataObj[item.objFieldName] = input.value;
     } 
   });
