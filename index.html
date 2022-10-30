@@ -110,17 +110,17 @@
   <div class="container py-60px">
     <!-- 搜尋區 -->
     <div class="row justify-content-center">
-      <div class="col-10">
-        <div class="d-flex">
-          <select name="" id="">
+      <div class="col-3"> 
+        <select class="index-search" onchange="onchange_slcSearch();" id="slcSearch">
             <option value="" disabled selected hidden>地區搜尋</option>
             <option value="所有">所有</option>
             <option value="台北">台北</option>
             <option value="台中">台中</option>
             <option value="高雄">高雄</option>
           </select>
-          <p>本次搜尋共 6 筆資料</p>
         </div>
+      <div class="col-7 d-flex align-items-center">
+        <p class="text-dark mb-0">本次搜尋共 <span id="searchResult">6</span> 筆資料</p>
       </div>
     </div>
 
@@ -160,6 +160,7 @@
 
     <script src="./assets/js/vendors.js"></script>
     <script src="./assets/js/all.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 
 </html>

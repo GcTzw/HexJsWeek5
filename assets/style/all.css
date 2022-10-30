@@ -12473,6 +12473,12 @@ fieldset:disabled .btn {
   color: #818A91;
 }
 
+.index-search {
+  padding: 8px 12px;
+  color: #818A91;
+  width: 100%;
+}
+
 .trip-area {
   list-style: none;
   display: -webkit-box;
@@ -12480,16 +12486,14 @@ fieldset:disabled .btn {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   margin-top: 52px;
 }
 
 .trip-item {
-  width: 31%;
+  width: 30%;
   height: 476px;
   background-color: #fff;
+  margin-right: 30px;
   margin-bottom: 38px;
   border-radius: 2%;
 }

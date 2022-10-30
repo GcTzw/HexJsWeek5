@@ -1,5 +1,6 @@
 "use strict";
 
+var colorPrimary = "#00807E";
 var objFieldNameArr = [{
   id: "txtName",
   name: "套票名稱",
@@ -57,13 +58,28 @@ var data = [{
   "price": 1765,
   "rate": 7
 }];
-init();
+init("");
 
-function init() {
+function init(area) {
   var tripArea = document.querySelector('.trip-area');
+  tripArea.innerHTML = "";
+  var cnt = 0;
   data.forEach(function (item) {
-    tripArea.innerHTML += getOneSet(item);
+    if (area == "") {
+      tripArea.innerHTML += getOneSet(item);
+      cnt++;
+    } else if (area == item.area) {
+      tripArea.innerHTML += getOneSet(item);
+      cnt++;
+    }
   });
+  var searchResult = document.querySelector('#searchResult');
+  searchResult.innerText = cnt;
+}
+
+function onchange_slcSearch() {
+  var slcSearch = document.querySelector('#slcSearch');
+  init(slcSearch.value == "所有" ? "" : slcSearch.value);
 }
 
 function AddOneSet() {
@@ -74,7 +90,12 @@ function AddOneSet() {
       var input = document.querySelector("#".concat(item.id));
 
       if (!input.value) {
-        alert("".concat(item.name, "\u6C92\u6709\u586B\u5BEB\uFF01"));
+        Swal.fire({
+          title: '資料不完整！',
+          text: "".concat(item.name, "\u6C92\u6709\u586B\u5BEB\uFF01"),
+          icon: 'error',
+          confirmButtonColor: colorPrimary
+        });
         PassFlag = false;
       }
 
@@ -85,7 +106,22 @@ function AddOneSet() {
   if (PassFlag) {
     newDataObj.id = data.length;
     data.push(newDataObj);
+    Swal.fire({
+      title: '新增成功！',
+      text: "",
+      icon: 'success',
+      confirmButtonColor: colorPrimary
+    });
+    init("");
+    clearAddPanel();
   }
+}
+
+function clearAddPanel() {
+  objFieldNameArr.forEach(function (item) {
+    var input = document.querySelector("#".concat(item.id));
+    input.value = "";
+  });
 }
 
 function getOneSet(obj) {
