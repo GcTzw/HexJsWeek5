@@ -5,29 +5,35 @@
   background-color: $gray-100;
   padding: 8px 12px;
   width: 100%;
-  color: #818A91;
+  color: $gray-500;
   align-items: start;
   text-align: left;
   &::placeholder{
-    color: #818A91;
+    color: $gray-500;
   }
+}
+
+.index-search{
+  padding: 8px 12px;
+  color: $gray-500;
+  width: 100%;
 }
 
 .trip-area{
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 
   margin-top: 52px;
 }
 
 .trip-item
 {
-  width: 31%;
+  width: 30%;
   height: 476px;
 
   background-color: #fff;
+  margin-right: 30px;
   margin-bottom: 38px;
   border-radius: 2%;
 }
@@ -86,7 +92,7 @@
     padding-bottom: 4px;
   }
   p{
-    color:#818A91;
+    color:$gray-500;
     margin-bottom: 32px;
     margin-top: 16px;
   }

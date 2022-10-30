@@ -1,3 +1,5 @@
+const colorPrimary = "#00807E";
+
 const objFieldNameArr = [
   {
     id: "txtName",
@@ -69,14 +71,33 @@ let data = [
   }
 ];
 
-init();
+init("");
 
-function init()
+function init(area)
 {
   let tripArea = document.querySelector('.trip-area');
+  tripArea.innerHTML = "";
+
+  let cnt = 0;
   data.forEach(function(item){
-    tripArea.innerHTML+=getOneSet(item);
+    if(area=="")
+    {
+      tripArea.innerHTML+=getOneSet(item);
+      cnt++;
+    }else if (area == item.area) {
+      tripArea.innerHTML+=getOneSet(item);
+      cnt++;
+    }      
   });
+
+  let searchResult = document.querySelector('#searchResult');
+  searchResult.innerText = cnt;
+}
+
+function onchange_slcSearch()
+{
+  let slcSearch = document.querySelector('#slcSearch');
+  init(slcSearch.value == "所有" ? "" : slcSearch.value);  
 }
 
 function AddOneSet()
@@ -90,7 +111,12 @@ function AddOneSet()
       let input = document.querySelector(`#${item.id}`);
       if(!input.value)
       {
-        alert(`${item.name}沒有填寫！`);
+        Swal.fire({
+          title: '資料不完整！',
+          text:  `${item.name}沒有填寫！`,
+          icon: 'error',
+          confirmButtonColor: colorPrimary
+        })      
         PassFlag = false;
       }
 
@@ -101,7 +127,28 @@ function AddOneSet()
   if(PassFlag){
     newDataObj.id = data.length;
     data.push(newDataObj);
+
+    Swal.fire({
+      title: '新增成功！',
+      text: "",
+      icon: 'success',
+      confirmButtonColor: colorPrimary
+    })
+
+    init("");
+    clearAddPanel();
+
   } 
+}
+
+function clearAddPanel()
+{
+  objFieldNameArr.forEach(function(item){
+    
+      let input = document.querySelector(`#${item.id}`);
+      input.value = "";
+    
+  });
 }
 
 function getOneSet(obj)
