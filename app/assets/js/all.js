@@ -187,7 +187,7 @@ function clearAddPanel()
 function getOneSet(obj)
 {
   let rtnStr = "";
-  rtnStr += '<li class="trip-item">';
+  rtnStr += '<li class="trip-item shadow">';
 
   rtnStr += getImgArea(obj);
   rtnStr += getInfoArea(obj);
